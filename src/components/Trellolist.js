@@ -10,9 +10,8 @@ const ListContainer = styled.div`
   background-color: #F3F7F8;
   border-radius: 10px;
   width: 331px;
-  height: 551px;
+  min-height: 551px;
   padding: 8px;
-  height: 100%;
   margin: 0 22px 0 0;
 `;
 
@@ -32,6 +31,9 @@ const TitleContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
+  height: 20px;
+  margin:12px 16px 0 16px;
+
 `;
 
 const DeleteButton = styled.img`
@@ -49,7 +51,48 @@ const ListTitle = styled.h4`
   ${TitleContainer}:hover & {
     background: #ccc;
   }
+  height: 20px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 20px;
+  color: #091623;
+
 `;
+
+const HardDiv = styled.div`
+  background: #FFFFFF;
+  width: 295px;
+  height: 56px;
+  margin-left:12px;
+  margin-top:16px;
+  display: flex;
+  font-family: Roboto;
+  font-weight: 500;
+  font-size:14px;
+  line-height: 20px;
+  align-items: center;
+  padding-left: 20px;
+  background: #FFFFFF;
+box-shadow: 3px 3px 10px rgba(149, 183, 198, 0.25);
+border-radius: 10px;
+`
+
+const ImgDiv = styled.div`
+  background: #FFFFFF;
+  padding-right: 20px;
+  margin-left:40px;
+  border-radius: 10px;
+
+`
+const Img = styled.img`
+    width: 34.09px;
+    height: 30px;
+    margin-left:2px;
+    border-radius: 50%;
+
+`
 
 const TrelloList = ({ title, cards, listID, index, dispatch }) => {
   const [isEditing, setIsEditing] = useState(false);
@@ -122,6 +165,12 @@ const TrelloList = ({ title, cards, listID, index, dispatch }) => {
                     />
                   ))}
                   {provided.placeholder}
+                  <HardDiv>Weekly Updates<ImgDiv>
+                        <Img src={require('./assets/i1.png')}/>
+                        <Img src={require('./assets/i2.png')}/>
+                        <Img src={require('./assets/i3.png')}/>
+                    </ImgDiv>
+                  </HardDiv>
                   <DeleteButton src={require('./assets/trash.png')} onClick={handleDeleteList}>   
                   </DeleteButton>
                   <Tag src={require('./assets/tag.png')}></Tag> 

@@ -8,7 +8,7 @@ import "./index.css";
 import { createGlobalStyle } from "styled-components";
 import $ from "jquery";
 import { PersistGate } from "redux-persist/integration/react";
-
+import 'typeface-roboto'
 const { persistor, store } = Store();
 
 const GlobalStyle = createGlobalStyle`

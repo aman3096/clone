@@ -9,7 +9,8 @@ import { Link } from "react-router-dom";
 const ListsContainer = styled.div`
   display: flex;
   flex-direction: row;
-  margin: 23px;
+  box-shadow: 3px 3px 10px rgba(149, 183, 198, 0.25);
+border-radius: 10px;
 `;
 
 const StyledNav = styled.nav`
@@ -47,10 +48,10 @@ const Img = styled.img`
 const SButton = styled.button`
   margin:50px;
   border: none;
-  backgroundColor
 `
 const Main = styled.div`
   margin: 30px;
+  
 `
 class TrelloBoard extends PureComponent {
   constructor(){
@@ -109,12 +110,12 @@ class TrelloBoard extends PureComponent {
         <Img src={require("./assets/image5.png")}/>
         <Img src={require("./assets/image6.png")}/>
 
-    <span style={{marginLeft:"30%"}}>
+    <span style={{marginLeft:"20%"}}>
      <span className="nav-item active  mr-sm-2">
        <Button className="align-self-center"><img src={require("./assets/star.png")}/></Button>
      </span>
      <span className="nav-item my-2 my-sm-0">
-       <Button className="align-self-center"><img src={require("./assets/calendar.png")}></img>  Calandar</Button>
+       <Button className="align-self-center"><img src={require("./assets/calendar.png")}></img>  Calendar</Button>
      </span>
      <span className="nav-item">
        <Button className="align-self-center"><img src={require("./assets/globe.svg")}></img>  Public</Button>

@@ -7,11 +7,13 @@ import Card from "@material-ui/core/Card";
 const Container = styled.div`
   width: 307px;
   margin-bottom: 8px;
+
 `;
 
 const StyledCard = styled(Card)`
   min-height: 85px;
   padding: 6px 8px 2px;
+
 `;
 
 const StyledTextArea = styled(Textarea)`

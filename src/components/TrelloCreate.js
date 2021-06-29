@@ -78,6 +78,8 @@ class TrelloCreate extends React.PureComponent {
       opacity: ${buttonTextOpacity};
       color: ${buttonTextColor};
       background-color: ${buttonTextBackground};
+      box-shadow: 3px 3px 10px rgba(149, 183, 198, 0.25);
+border-radius: 10px;
     `;
 
     return (
