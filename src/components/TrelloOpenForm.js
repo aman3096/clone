@@ -14,9 +14,9 @@ const TrelloOpenForm = ({ list, children, onClick }) => {
     border-radius: 3px;
     height: 36px;
     margin-left: 8px;
-    width: 300px;
-    padding-left: 10px;
+    padding-left: 280px;
     padding-right: 10px;
+    margin-top: -40px;
     opacity: ${buttonTextOpacity};
     color: ${buttonTextColor};
     background-color: ${buttonTextBackground};

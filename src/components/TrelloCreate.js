@@ -1,6 +1,6 @@
 import React from "react";
 import Icon from "@material-ui/core/Icon";
-import TrelloButton from "./TrelloButton";
+import TrelloButton from "./assets/TrelloButton";
 import { connect } from "react-redux";
 import { addList, addCard } from "../actions";
 import styled from "styled-components";
@@ -103,7 +103,7 @@ class TrelloCreate extends React.PureComponent {
       </TrelloForm>
     ) : (
       <TrelloOpenForm list={list} onClick={this.openForm}>
-        {list ? "Add another list" : "Add another card"}
+        {list ? "Add another list" : ""}
       </TrelloOpenForm>
     );
   }

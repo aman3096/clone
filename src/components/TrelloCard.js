@@ -8,12 +8,12 @@ import Icon from "@material-ui/core/Icon";
 import TrelloForm from "./TrelloForm";
 import { editCard, deleteCard } from "../actions";
 import { connect } from "react-redux";
-import TrelloButton from "./TrelloButton";
+import TrelloButton from "./assets/TrelloButton";
 
 const CardContainer = styled.div`
-  margin: 0 0 8px 0;
+  margin: 0 0 16px 0;
   position: relative;
-  max-width: 100%;
+  width: 307px;
   word-wrap: break-word;
 `;
 
@@ -32,21 +32,17 @@ const EditButton = styled(Icon)`
   }
 `;
 
-const DeleteButton = styled(Icon)`
+const DeleteButton = styled.img`
   position: absolute;
-  display: none;
-  right: 5px;
+  right: 27px;
   bottom: 5px;
-  opacity: 0.5;
-  ${CardContainer}:hover & {
-    display: block;
-    cursor: pointer;
-  }
-  &:hover {
-    opacity: 0.8;
-  }
-`;
 
+`;
+const Tag = styled.img`
+  position: absolute;
+  right: 12px;
+  bottom: 5px;
+`
 const TrelloCard = React.memo(({ text, id, listID, index, dispatch }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [cardText, setText] = useState(text);
@@ -96,10 +92,9 @@ const TrelloCard = React.memo(({ text, id, listID, index, dispatch }) => {
               >
                 edit
               </EditButton>
-              <DeleteButton fontSize="small" onMouseDown={handleDeleteCard}>
-                delete
+              <DeleteButton src={require('./assets/trash.png')} onMouseDown={handleDeleteCard}>
               </DeleteButton>
-
+              <Tag src={require('./assets/tag.png')}></Tag>
               <CardContent>
                 <Typography>{text}</Typography>
               </CardContent>

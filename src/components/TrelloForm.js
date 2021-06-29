@@ -5,7 +5,7 @@ import Textarea from "react-textarea-autosize";
 import Card from "@material-ui/core/Card";
 
 const Container = styled.div`
-  width: 284px;
+  width: 307px;
   margin-bottom: 8px;
 `;
 
@@ -16,7 +16,7 @@ const StyledCard = styled(Card)`
 
 const StyledTextArea = styled(Textarea)`
   resize: none;
-  width: 100%;
+  width: 307px;
   overflow: hidden;
   outline: none;
   border: none;

@@ -5,19 +5,19 @@ import { Droppable, Draggable } from "react-beautiful-dnd";
 import styled from "styled-components";
 import { connect } from "react-redux";
 import { editTitle, deleteList } from "../actions";
-import Icon from "@material-ui/core/Icon";
 
 const ListContainer = styled.div`
   background-color: #F3F7F8;
   border-radius: 10px;
-  width: 300px;
+  width: 331px;
+  height: 551px;
   padding: 8px;
   height: 100%;
-  margin: 0 8px 0 0;
+  margin: 0 22px 0 0;
 `;
 
 const StyledInput = styled.input`
-  width: 100%;
+  width:331px;
   border: none;
   outline-color: blue;
   border-radius: 10px;
@@ -26,7 +26,7 @@ const StyledInput = styled.input`
 `;
 
 const TitleContainer = styled.div`
-  width: 100%;
+  width: 300px;
   height: 100%;
   display: flex;
   justify-content: space-between;
@@ -34,15 +34,16 @@ const TitleContainer = styled.div`
   cursor: pointer;
 `;
 
-const DeleteButton = styled(Icon)`
+const DeleteButton = styled.img`
   cursor: pointer;
-  transition: opacity 0.3s ease-in-out;
-  opacity: 0.4;
-  &:hover {
-    opacity: 0.8;
-  }
+
+  margin-left: 280px;
 `;
 
+const Tag = styled.img`
+  cursor: pointer;
+  margin-left: 10px;
+`
 const ListTitle = styled.h4`
   transition: background 0.3s ease-in;
   ${TitleContainer}:hover & {
@@ -97,17 +98,17 @@ const TrelloList = ({ title, cards, listID, index, dispatch }) => {
         >
           <Droppable droppableId={String(listID)} type="card">
             {provided => (
-              <div>
+              <>
                 <div>
                   {isEditing ? (
                     renderEditInput()
                   ) : (
-                    <TitleContainer onClick={() => setIsEditing(true)}>
+                    <>
+                    <TitleContainer>
                       <ListTitle>{listTitle}</ListTitle>
-                      <DeleteButton onClick={handleDeleteList}>
-                        delete
-                      </DeleteButton>
                     </TitleContainer>
+                  <TrelloCreate listID={listID} />
+                  </>
                   )}
                 </div>
                 <div {...provided.droppableProps} ref={provided.innerRef}>
@@ -121,9 +122,12 @@ const TrelloList = ({ title, cards, listID, index, dispatch }) => {
                     />
                   ))}
                   {provided.placeholder}
-                  <TrelloCreate listID={listID} />
+                  <DeleteButton src={require('./assets/trash.png')} onClick={handleDeleteList}>   
+                  </DeleteButton>
+                  <Tag src={require('./assets/tag.png')}></Tag> 
+
                 </div>
-              </div>
+              </>
             )}
           </Droppable>
         </ListContainer>
