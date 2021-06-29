@@ -9,23 +9,24 @@ import { Link } from "react-router-dom";
 const ListsContainer = styled.div`
   display: flex;
   flex-direction: row;
-  box-shadow: 3px 3px 10px rgba(149, 183, 198, 0.25);
-border-radius: 10px;
+
 `;
 
 const StyledNav = styled.nav`
 background: linear-gradient(269.87deg, #2675EB 0%, #0ED7F2 100%);
-display: flow-root;
+display: flex;
+justify-content: space-between;
 `;
 
 const Button = styled.button`
   height: 44px;
-  background: #5aa3f2;
+  background: #19D9FB;
   border-radius: 5px;
   border:none;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 500;
   font-family: roboto;
+  padding: 12px;
   margin: 12px;
   color: white;
 `
@@ -34,10 +35,12 @@ height: 44px;
 background: #19D9FB;
 border-radius: 5px;
 border:none;
-font-size: 20px;
+font-size: 18px;
 font-weight: 500;
 font-family: roboto;
-margin: 12px;
+padding: 12px;
+margin:12px
+margin-right: 25px;
 color: white;
 `
 const Img = styled.img`
@@ -50,8 +53,17 @@ const SButton = styled.button`
   border: none;
 `
 const Main = styled.div`
-  margin: 30px;
-  
+  margin: 30px; 
+`
+const Span = styled.div`
+height: 20px;
+width: 281px;
+font-family: Roboto;
+font-style: normal;
+font-weight: bold;
+font-size: 30px;
+line-height: 20px;
+color: #FFFFFF;
 `
 class TrelloBoard extends PureComponent {
   constructor(){
@@ -101,32 +113,23 @@ class TrelloBoard extends PureComponent {
      
       <DragDropContext onDragEnd={this.onDragEnd}>
         <StyledNav className="navbar navbar-expand-lg navbar-light bg-light">    
-        <span style={{color: "white", fontFamily: "roboto", fontWeight:"700", fontSize:"2rem", padding: "0 1rem 0 3rem"}}>
+        <div style={{color: "white", fontFamily: "roboto", fontWeight:"700", fontSize:"2rem", padding: "0 1rem 0 3rem", display:"flex"}}>
+     
         {board.title}
-        <Img src={require("./assets/image1.png")}/>
+         <Img src={require("./assets/image1.png")}/>
         <Img src={require("./assets/image2.png")}/>
         <Img src={require("./assets/image3.png")}/>
         <Img src={require("./assets/image4.png")}/>
         <Img src={require("./assets/image5.png")}/>
         <Img src={require("./assets/image6.png")}/>
-
-    <span style={{marginLeft:"20%"}}>
-     <span className="nav-item active  mr-sm-2">
-       <Button className="align-self-center"><img src={require("./assets/star.png")}/></Button>
-     </span>
-     <span className="nav-item my-2 my-sm-0">
+    
+        </div>
+        <div style={{justifyContent:"flex-end"}}>
+       <Button><img src={require("./assets/star.png")}/></Button>
        <Button className="align-self-center"><img src={require("./assets/calendar.png")}></img>  Calendar</Button>
-     </span>
-     <span className="nav-item">
        <Button className="align-self-center"><img src={require("./assets/globe.svg")}></img>  Public</Button>
-     </span>
-     <span className="nav-item">
        <NewButton className="disabled align-self-center" onClick={this.handleBucket}> + New Bucket</NewButton>
-     </span>
-     <span>
-     </span>
-      </span>
-      </span>
+      </div>
 </StyledNav>
         <Main>
         {this.state.clicked && <SButton><TrelloCreate list/></SButton>}
